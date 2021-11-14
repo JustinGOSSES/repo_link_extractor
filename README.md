@@ -1,7 +1,7 @@
 # repo_link_extractor
 A github actions + python code to extract URLs to code repositories to put into standard form, starting with github
 
-## ---- NOTE: JUST STARTED ONLY AN IDEAD TO COME BACK TO ----
+## ---- NOTE: JUST STARTED ONLY AN IDEA TO COME BACK TO ----
 
 ## Summary
 
