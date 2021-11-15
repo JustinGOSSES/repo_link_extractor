@@ -30,4 +30,4 @@ https://github.com/JustinGOSSES/repo_link_extractor/blob/JustinGOSSES-patch-2/.g
      
       run: |
         echo got to curl part, hope it works
-        curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o assets/markdownFiles/awesome-open-geoscience.txt
+        curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o assets/markdownFiles/awesome-open-geoscience.md
