@@ -12,57 +12,12 @@ jobs:
 #         with:
 #           args: https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -O assets/README.md
   
-  job_1:
-    name: Add 3 and 10
+
+
+  build:
     runs-on: ubuntu-latest
     steps:
-      - shell: bash
-        run: |
-          expr 3 + 7 > math-homework.txt
-      - name: Upload math result for job 1
-        uses: actions/upload-artifact@v2
-        with:
-          name: homework
-          path: math-homework.txt
-
-  job_2:
-    name: Multiply by 9
-    needs: job_1
-    runs-on: windows-latest
-    steps:
-      - name: Download math result for job 1
-        uses: actions/download-artifact@v2
-        with:
-          name: homework
-      - shell: bash
-        run: |
-          value=`cat math-homework.txt`
-          expr $value \* 9 > math-homework.txt
-      - name: Upload math result for job 2
-        uses: actions/upload-artifact@v2
-        with:
-          name: homework
-          path: math-homework.txt
-
-  job_3:
-    name: Display results
-    needs: job_2
-    runs-on: macOS-latest
-    steps:
-      - name: Download math result for job 2
-        uses: actions/download-artifact@v2
-        with:
-          name: homework
-      - name: Print the final result
-        shell: bash
-        run: |
-          value=`cat math-homework.txt`
-          echo The result is $value
-
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 #     - name: Set up Python 3.10
 #       uses: actions/setup-python@v2
 #       with:
@@ -73,12 +28,67 @@ jobs:
 #         python -m pip install --upgrade pip
 #         pip install flake8 pytest
 #         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-#     - name: download-a-file
-#       run: |
-#         echo got to curl part, hope it works
-#         curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o README2.md
-#     - name: Download all workflow run artifacts
-#       uses: actions/download-artifact@v2
-#       with:
-#         name: download-a-file
-#         path: README2.md
+    - name: download-a-file
+      run: |
+        echo got to curl part, hope it works
+        cd /assets/markdownFiles/
+        curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o README2.md
+        cd ../../
+    - name: commit files
+      run: |
+        git add .
+        git commit -m "downloaded new README2.md file"
+    - name: Push changes # push the output folder to your repo
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        force: true
+
+
+
+#   job_1:
+#     name: Add 3 and 10
+#     runs-on: ubuntu-latest
+#     steps:
+#       - shell: bash
+#         run: |
+#           expr 3 + 7 > math-homework.txt
+#       - name: Upload math result for job 1
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: homework
+#           path: math-homework.txt
+
+#   job_2:
+#     name: Multiply by 9
+#     needs: job_1
+#     runs-on: windows-latest
+#     steps:
+#       - name: Download math result for job 1
+#         uses: actions/download-artifact@v2
+#         with:
+#           name: homework
+#       - shell: bash
+#         run: |
+#           value=`cat math-homework.txt`
+#           expr $value \* 9 > math-homework.txt
+#       - name: Upload math result for job 2
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: homework
+#           path: math-homework.txt
+
+#   job_3:
+#     name: Display results
+#     needs: job_2
+#     runs-on: macOS-latest
+#     steps:
+#       - name: Download math result for job 2
+#         uses: actions/download-artifact@v2
+#         with:
+#           name: homework
+#       - name: Print the final result
+#         shell: bash
+#         run: |
+#           value=`cat math-homework.txt`
+#           echo The result is $value
