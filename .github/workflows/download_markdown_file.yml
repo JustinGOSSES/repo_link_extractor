@@ -32,12 +32,16 @@ jobs:
       run: |
         echo got to curl part, hope it works
         cd /assets/markdownFiles/
+        echo changed directory
         curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o README2.md
+        echo ran curl
         cd ../../
+        echo changed back to home directory
     - name: commit files
       run: |
         git add .
         git commit -m "downloaded new README2.md file"
+        echo committed changes and next step is to push via force
     - name: Push changes # push the output folder to your repo
       uses: ad-m/github-push-action@master
       with:
