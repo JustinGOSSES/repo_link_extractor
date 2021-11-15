@@ -31,11 +31,12 @@ jobs:
     - name: download-a-file
       run: |
         echo got to curl part, hope it works
-        cd /assets/markdownFiles/
+        cd assets/markdownFiles/
         echo changed directory
         curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o README2.md
         echo ran curl
-        cd ../../
+        cd ../
+        cd ../
         echo changed back to home directory
     - name: commit files
       run: |
