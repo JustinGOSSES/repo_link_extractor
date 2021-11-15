@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-
+https://github.com/JustinGOSSES/repo_link_extractor/blob/JustinGOSSES-patch-2/.github/workflows/github-actions-demo.yml
     runs-on: ubuntu-latest
 
     steps:
@@ -27,4 +27,7 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Download a file
-      run: curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o assets/markdownFiles/awesome-open-geoscience.txt
+     
+      run: |
+        echo got to curl part, hope it works
+        curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o assets/markdownFiles/awesome-open-geoscience.txt
