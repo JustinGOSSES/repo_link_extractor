@@ -13,7 +13,7 @@ jobs:
 #           args: https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -O assets/README.md
   
   job_1:
-    name: Add 3 and 7
+    name: Add 3 and 10
     runs-on: ubuntu-latest
     steps:
       - shell: bash
