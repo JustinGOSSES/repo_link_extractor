@@ -28,4 +28,4 @@ jobs:
     - name: Download a file
       run: |
         echo got to curl part, hope it works
-        curl -s -N https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o /assets/markdownFiles/README.md
+        curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o README2.md
