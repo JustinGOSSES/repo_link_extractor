@@ -10,7 +10,7 @@ jobs:
       - name: wget
         uses: wei/wget@v1
         with:
-          args: -P assets/markdownFiles/README.md https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md
+          args: -P assets/markdownFiles/ https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md
   build:
     runs-on: ubuntu-latest
     steps:
