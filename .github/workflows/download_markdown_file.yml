@@ -10,7 +10,7 @@ jobs:
       - name: wget
         uses: wei/wget@v1
         with:
-          args: https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md
+          args: https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -O assets/README.md
   build:
     runs-on: ubuntu-latest
     steps:
@@ -25,9 +25,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Download a file
+    - name: download-a-file
       run: |
         echo got to curl part, hope it works
         curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o README2.md
     - name: Download all workflow run artifacts
       uses: actions/download-artifact@v2
+      with:
+        name: download-a-file
+        path: README2.md
