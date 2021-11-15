@@ -5,9 +5,7 @@ name: Python application
 on: [pull_request, push, issues]
 jobs:
   build:
-https://github.com/JustinGOSSES/repo_link_extractor/blob/JustinGOSSES-patch-2/.github/workflows/github-actions-demo.yml
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.10
