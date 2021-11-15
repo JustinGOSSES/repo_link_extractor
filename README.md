@@ -41,3 +41,12 @@ This is referenced on an issue here: https://github.com/softwareunderground/open
 
 ## Potential Useful Bits
 regular expression `(https:\/\/github.com\/)\w+(\/)\w+ ` seems like a good starting point for the extraction of Github URLs.
+
+
+## GitHub Actions Structure Tentative:
+- download README file
+- replace old README file with new
+- extract all links matching a regular expression
+- sort & take out duplicates
+- make into JSON with domain, URL, org or username, repository name, source file name, source file link, and date of harvests
+- pull out org or username & repository name from above and put into appropriate key of the file JSON if not already there in either org or repo keys.
