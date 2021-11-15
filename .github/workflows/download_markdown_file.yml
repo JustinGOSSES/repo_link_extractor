@@ -2,7 +2,7 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
 name: Python application
-on: [pull_request, push, issues]
+on: [push]
 jobs:
   wget:
       runs-on: ubuntu-latest
@@ -28,4 +28,4 @@ jobs:
     - name: Download a file
       run: |
         echo got to curl part, hope it works
-        curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o assets/markdownFiles/awesome-open-geoscience.md
+        curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o README2.md
