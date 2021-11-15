@@ -50,3 +50,17 @@ regular expression `(https:\/\/github.com\/)\w+(\/)\w+ ` seems like a good start
 - sort & take out duplicates
 - make into JSON with domain, URL, org or username, repository name, source file name, source file link, and date of harvests
 - pull out org or username & repository name from above and put into appropriate key of the file JSON if not already there in either org or repo keys.
+
+## How to Integrate into https://github.com/softwareunderground/open_geosciene_code_projects_viz ??????
+
+#### Options:
+1. Put all of the code here into the repository: https://github.com/softwareunderground/open_geosciene_code_projects_viz 
+2. Call the code here from https://github.com/softwareunderground/open_geosciene_code_projects_viz
+
+
+##### If calling the code....
+- (1) add the script to read the README to MASTER.sh as the first step
+- (2) set master.sh to be callled by GitHub actions
+- (3) when triggered the github actions does the entirity of the github actions in this repo, including calling the python scripts as its first step. 
+- (4) latter steps include setting up the environnment and calling all the python scripts that the master.sh bash script calls.
+The code would need to be called by either a GitHub Action on (pull request, push, manual, or cron job) or by trigger after the call to refresh the 
