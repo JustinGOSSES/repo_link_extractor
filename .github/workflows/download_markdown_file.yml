@@ -4,6 +4,13 @@
 name: Python application
 on: [pull_request, push, issues]
 jobs:
+  wget:
+      runs-on: ubuntu-latest
+      steps:
+      - name: wget
+        uses: wei/wget@v1
+        with:
+          args: -O assets/markdownFiles/awesome-open-geoscience.mdl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md
   build:
     runs-on: ubuntu-latest
     steps:
@@ -19,7 +26,6 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Download a file
-     
       run: |
         echo got to curl part, hope it works
         curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o assets/markdownFiles/awesome-open-geoscience.md
