@@ -34,7 +34,7 @@ jobs:
     - name: Get Repos From Files
       run: |
         cd python
-        python -m harvest_repos.py
+        python -m harvest_repos
         cd ..
     - name: commit files
       run: |
