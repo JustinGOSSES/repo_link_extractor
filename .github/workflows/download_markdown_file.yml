@@ -29,3 +29,5 @@ jobs:
       run: |
         echo got to curl part, hope it works
         curl https://raw.githubusercontent.com/softwareunderground/awesome-open-geoscience/main/README.md -o README2.md
+    - name: Download all workflow run artifacts
+      uses: actions/download-artifact@v2
